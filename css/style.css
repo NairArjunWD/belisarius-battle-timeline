@@ -1,0 +1,174 @@
+div {
+  background-color: #65272c;
+  font-family: montserrat;
+}
+
+/* portrait of Belisarius */
+#image {
+  max-width: 30%;
+  height: auto;
+  border-radius: 10%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  border: 5px solid #66023c;
+}
+
+/* center title */
+#title {
+    text-align: center;
+    margin: 0 auto; 
+    padding-top: 20px;
+}
+
+/* center subheading */
+#subheading {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* center the text below the portrait */
+#img-caption {
+  text-align: center;
+    margin: 0 auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* center h2 text */
+h2 {
+  margin-left: 1%;
+  margin-bottom: 0;
+  padding-left: 40%;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #4a9cf9;
+  top: -10px;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* timeline diamond */
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: #66023c;
+  border: 4px solid #4a9cf9;
+  top: 115px;
+  z-index: 2;
+  transform: rotate(45deg);
+}
+/* inversing point position */
+.right::after {
+  left: -16px;
+}
+
+/* Left Container */
+.left {
+  left: 0;
+}
+
+/* Right Container */
+.right {
+  left: 50%;
+}
+
+/* Points on left box pointing right*/
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 122px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Points on right box pointing left */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 122px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* battle info */
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 50px;
+}
+
+/* center the battle name in each box */
+h3 {
+  text-align: center;
+}
+
+/* media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  .timeline::after {
+  left: 31px;
+  }
+  
+  /* full-width containers */
+  .container {
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 25px;
+  }
+  
+  /* all points are pointing left */
+  .container::before {
+  left: 60px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+  }
+
+  /* all diamonds are at the center, next to points */
+  .left::after, .right::after {
+  left: 15px;
+  }
+  
+  /* Make right containers copy left containers */
+  .right {
+  left: 0%;
+  }
+}
